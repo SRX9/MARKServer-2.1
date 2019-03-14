@@ -22,10 +22,10 @@ app.get('/getCusers',(req,res)=>{
         if(checkone===users[x].user)
         {
             res.send(users[x].cusers);
-            console.log("List of Current Users Send To user : "+checkone);
-            console.log("The list is :"+ users[x].cusers);
+            //console.log("List of Current Users Send To user : "+checkone);
+            //console.log("The list is :"+ users[x].cusers);
             users[x].cusers=[];
-            console.log(" CUB Crate Emptied for user "+checkone);
+            //console.log(" CUB Crate Emptied for user "+checkone);
             break;
         }
     }
@@ -53,15 +53,15 @@ app.post('/setUser', (req, res) => {
         }
         users[i].cusers.push({ msg: '$$$', user: String(requester) });
     }
-    console.log(tub);
-    console.log(users);
-    console.log(req.body.user+" joined Stream");
+    //console.log(tub);
+    //console.log(users);
+    //console.log(req.body.user+" joined Stream");
     res.send("You Have Successfully Joined Stream");
     logs.push("Time=>" + String(new Date()) + " ====>User " + req.body.user + " Joined Stream");
 });
 
 app.post('/sendmsg', (req, res) => {
-    console.log(req.body.msg,req.body.user+" sendmsg");
+    //console.log(req.body.msg,req.body.user+" sendmsg");
     var l=tub.length;
     for(var i=0;i<l;i++)
     {
@@ -87,7 +87,7 @@ app.get('/getmsg', (req, res) => {
                 if(tub[x].imb.length!==0)
                 {
                     res.send(tub[x].imb);
-                    console.log(tub[x].user+ "sended=>  " + tub[x].imb);
+                    //console.log(tub[x].user+ "sended=>  " + tub[x].imb);
                     tub[x].imb=[];
                 }
                 else
@@ -110,11 +110,11 @@ app.get('/serverinfo',(req,res)=>{
     users = [];
     universalus = [];
 },(e)=>{
-    console.log("Problem Connecting"+e);
+    //console.log("Problem Connecting"+e);
 });
 
 app.listen(port,()=>{
     logs.push("Time=>" + String(new Date()) +"===>Server is Live Since then...")
-    console.log("Server is Live ...");
+    //console.log("Server is Live ...");
 })
 
